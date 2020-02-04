@@ -1,59 +1,55 @@
-/********
- Author:
- Program: Money class - program assignment #1
- Due Date:
- Purpose:
- ********/
-#include "money.h"
+// read quarters and dimes and computer toCurrency
 
-// convert current currency values to a string
-string Money::toString() {
-    return "";
-}
+#include <iostream>
+#include <string>
 
-// format amount as a local currency and return
-string Money::toCurrency(double amount) {
-    stringstream ss;
+using namespace std;
 
-    ss << "$" << left << setfill('0') << setw(4) << amount;
-    return ss.str();
-}
+int main()
+{
+    // declare variables
+    int hundreds, tens, fives, ones, quarters, dimes, nickels, pennies;
+    double change, floatFmt, change1;
+    string checkFmt;
 
-// convert currency to float
-// read currency values from stdin and compute value
-// return results
-string Money::processChange() {
-    return "";
-}
 
-// read from stdin and process float command
-// convert float to change
-// return results
-string Money::processFloat() {
-    return "";
-}
 
-// read from stdin and process check command
-// convert float to dollar words & cents
-// return results
-string Money::processCheck() {
-  return "";
-}
+    // read input
+    cout << "Enter the amount of change:" << endl;
+    cin >> change;
 
-// read from stdin and process change-float command
-// read float of customer payment
-// read float of transaction cost
-// calculate difference and compute change values
-// return the results
-string Money::processChangeFloat() {
-  return "";
-}
+    change1 = change;
+    floatFmt = change;
+    hundreds = floatFmt/100;
+    hundreds = hundreds%100;
+    tens = floatFmt/10;
+    tens = tens%10;
+    fives = floatFmt/5;
+    fives = fives%5;
+    ones = floatFmt/1;
+    ones = ones%1;
 
-// read from stdin and process change-change command
-// read change of customer payment
-// read float of transaction cost
-// calculate difference and compute change values
-// output the results
-string Money::processChangeChange() {
-  return "";
+    change = change*100;
+    quarters = change/25;
+    quarters = quarters%25;
+    dimes = change/10;
+    dimes = dimes%10;
+    nickels = change/5;
+    nickels = nickels%5;
+    pennies = change/1;
+    pennies = pennies%1;
+
+    checkFmt = change1;
+
+
+    // do the math
+
+    // output the results
+    cout << "change format - " << hundreds << " " << tens << " " << fives << " " << ones << " " << quarters << " "
+    << dimes << " " << nickels << " " << pennies<< endl;
+    cout << "dollar format - " << "$" << change1 << endl;
+    cout << "float format - " << floatFmt << endl;
+    cout << "check format - " << checkFmt << endl;
+
+    return 0; // no errors
 }
